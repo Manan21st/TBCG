@@ -1,0 +1,32 @@
+# --- Orchestration ---
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+
+# --- LLM via HuggingFace Inference Providers (OpenAI-compatible router) ---
+langchain-openai>=0.2.0
+huggingface-hub>=0.25.0
+
+# --- Local embeddings + vector store ---
+sentence-transformers>=3.0.0
+langchain-huggingface>=0.1.0
+chromadb>=0.5.0
+
+# --- Tools ---
+langchain-experimental>=0.3.0   # PythonREPL for the finance agent
+ddgs>=6.0.0                 # keyless web search (default)
+# tavily-python>=0.5.0      # optional: enable SEARCH_BACKEND=tavily
+
+# --- Report / PDF ---
+fpdf2>=2.7.0
+
+# --- Frontend ---
+streamlit>=1.38.0
+
+# --- Observability (optional) ---
+langsmith>=0.1.0
+
+# --- Core utils ---
+pydantic>=2.7.0
+python-dotenv>=1.0.0

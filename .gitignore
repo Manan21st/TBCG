@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Env / secrets
+.env
+
+# Models / caches
+.cache/
+*.pdf
+reports/
+
+# Chroma local data (if running embedded)
+chroma_local/
+
+# OS / IDE / agent
+.DS_Store
+.idea/
+.vscode/
+.claude/
+
+# Test / build / lint
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Logs
+*.log
