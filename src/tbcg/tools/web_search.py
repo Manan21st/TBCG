@@ -9,6 +9,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from langsmith import traceable
+
 from ..config import get_settings
 
 
@@ -43,6 +45,7 @@ def _search_tavily(query: str, max_results: int) -> list[dict[str, Any]]:
     ]
 
 
+@traceable(run_type="tool", name="web_search.query")
 def web_search(query: str, max_results: int = 5) -> list[dict[str, Any]]:
     """Run a web search with the configured backend. Never raises."""
     s = get_settings()
@@ -54,6 +57,7 @@ def web_search(query: str, max_results: int = 5) -> list[dict[str, Any]]:
         return [{"title": "search-error", "snippet": str(exc), "url": ""}]
 
 
+@traceable(run_type="tool", name="web_search")
 def gather(queries: list[str], total: int = 8) -> list[dict[str, Any]]:
     """Run several queries and merge results, de-duplicated by URL/title."""
     if not queries:

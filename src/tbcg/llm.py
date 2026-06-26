@@ -23,6 +23,7 @@ from typing import TypeVar
 
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
+from langsmith import traceable
 from pydantic import BaseModel, ValidationError
 
 from .config import get_settings
@@ -124,6 +125,7 @@ def _extract_json(text: str) -> str:
     return text
 
 
+@traceable(run_type="chain", name="structured_call")
 def structured_call(
     schema: type[T],
     system: str,

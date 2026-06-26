@@ -5,6 +5,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from langsmith import traceable
+
 
 def _confidence_pct(value: Any) -> str:
     try:
@@ -13,6 +15,7 @@ def _confidence_pct(value: Any) -> str:
         return "n/a"
 
 
+@traceable(run_type="chain", name="build_report")
 def build_markdown_report(state: dict) -> str:
     """Assemble the final consulting report as markdown from graph state."""
     query = state.get("query", "")

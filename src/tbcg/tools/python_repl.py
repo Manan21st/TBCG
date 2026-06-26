@@ -9,6 +9,8 @@ from __future__ import annotations
 
 from functools import lru_cache
 
+from langsmith import traceable
+
 
 @lru_cache(maxsize=1)
 def _repl():
@@ -17,6 +19,7 @@ def _repl():
     return PythonREPL()
 
 
+@traceable(run_type="tool", name="python_repl")
 def run_python(code: str) -> str:
     """Execute ``code`` and return captured stdout (or an error string)."""
     try:

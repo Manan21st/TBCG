@@ -9,6 +9,8 @@ from __future__ import annotations
 from functools import lru_cache
 from typing import Any
 
+from langsmith import traceable
+
 from ..config import get_settings
 from ..rag.embeddings import get_embeddings
 
@@ -55,6 +57,7 @@ def chroma_available() -> bool:
         return False
 
 
+@traceable(run_type="retriever", name="rag_retrieve")
 def retrieve(query: str, k: int = 4) -> list[dict[str, Any]]:
     """Return up to ``k`` relevant chunks with source + similarity score.
 
